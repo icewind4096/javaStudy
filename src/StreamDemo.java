@@ -2,16 +2,37 @@ import java.io.*;
 
 /**
  * Created by windvalley on 2018/3/1.
+ * 字节数出/输出 outputstream/inputstream
+ * 字符输出/输出 fileReader/fileWriter
+ * 转换流 InputStreamRead/OutputStreamWriter;
  */
 public class StreamDemo {
     public static void main(String[] args) throws IOException {
         File file = new File("d:" + File.separatorChar + "level" + File.separatorChar + "streamOutput.txt");
 
         writerTest(file);
+        readerTest(file);
 
 //        streamOverWriteTest(file);
 //        streamAppendTest(file);
-        readTest(file);
+        readStreamTest(file);
+    }
+
+    private static void readerTest(File file) throws IOException {
+        if (file.exists() == true){
+            Reader reader = new FileReader(file);
+            char[] buffer = new char[1024];
+            while (true) {
+                int count = reader.read(buffer);
+                if (count >= 0){
+                    System.out.println(new String(buffer, 0, count));
+                }
+                else {
+                    break;
+                }
+            }
+            reader.close();
+        }
     }
 
     private static void writerTest(File file) throws IOException {
@@ -25,12 +46,12 @@ public class StreamDemo {
         writer.close();
     }
 
-    private static void readTest(File file) throws IOException {
+    private static void readStreamTest(File file) throws IOException {
         if (file.exists() == true) {
             InputStream inputStream = new FileInputStream(file);
             if (file.length() > 0) {
                 int length = (int) file.length();
-                byte[] bytes = new byte[length - 1];
+                byte[] bytes = new byte[length];
                 inputStream.read(bytes);
                 String text = new String(bytes);
                 System.out.println(text);
