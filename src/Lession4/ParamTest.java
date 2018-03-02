@@ -1,4 +1,4 @@
-package Lession4.Static;
+package Lession4;
 
 /**
  * Created by MMNJ005 on 2018/2/27.

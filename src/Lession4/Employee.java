@@ -1,6 +1,4 @@
-package Lession4.Static;
-
-import sun.util.resources.LocaleData;
+package Lession4;
 
 import java.time.LocalDate;
 
@@ -36,6 +34,12 @@ public class Employee{
         this.name = name;
         this.salary = salary;
         hireDay = LocalDate.of(year, month, day);
+    }
+
+    public Employee(){
+        this.name = "Default";
+        this.salary = 100;
+        hireDay = LocalDate.of(1000, 1,1);
     }
 
     public static int getNextId() {
@@ -83,5 +87,20 @@ public class Employee{
     @Override
     public String toString() {
         return "Address@" + super.toString() + "ID:" + getId() + "Name:" + getName() + " HireDay:" + getHireDay() + " Salary:" + getSalary();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null) return false;
+
+        if (getClass() != obj.getClass()) return false;
+
+        Employee employee = (Employee) obj;
+
+        return getName().equals(employee.getName())
+            && getSalary() == employee.getSalary()
+            && getHireDay() == employee.getHireDay();
     }
 }

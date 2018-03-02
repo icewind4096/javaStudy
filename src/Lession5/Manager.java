@@ -1,7 +1,6 @@
 package Lession5;
 
-import Lession4.Static.Employee;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+import Lession4.Employee;
 
 /**
  * Created by MMNJ005 on 2018/2/28.
@@ -47,5 +46,15 @@ public class Manager extends Employee {
         System.out.println(manager.toString());
         System.out.println(employeeA.toString());
         System.out.println(employeeB.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj) == false){
+            return false;
+        }
+
+        Manager manager = (Manager) obj;
+        return getBonus() == ((Manager) obj).getBonus();
     }
 }

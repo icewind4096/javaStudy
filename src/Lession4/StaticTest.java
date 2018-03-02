@@ -1,7 +1,4 @@
-package Lession4.Static;
-
-import java.text.SimpleDateFormat;
-import java.util.logging.SimpleFormatter;
+package Lession4;
 
 /**
  * Created by MMNJ005 on 2018/2/27.
