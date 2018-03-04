@@ -1,11 +1,14 @@
 package Lession4;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * Created by MMNJ005 on 2018/2/27.
+ * Serializable和cloneable 都是标识接口，本身无方法
+ * transient  关键字保证序列化操作中那个字段将不会参加
  */
-public class Employee{
+public class Employee implements Serializable{
     private static int nextId = 1;
     private int id;
 
