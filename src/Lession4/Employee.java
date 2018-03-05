@@ -104,6 +104,6 @@ public class Employee implements Serializable{
 
         return getName().equals(employee.getName())
             && getSalary() == employee.getSalary()
-            && getHireDay() == employee.getHireDay();
+            && getHireDay().equals(employee.getHireDay());
     }
 }
